@@ -4,7 +4,11 @@ export function showToast(message, type = 'info') {
   toastEl.setAttribute('role', 'alert');
   toastEl.innerHTML = `<div class="d-flex"><div class="toast-body">${message}</div><button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button></div>`;
   document.body.appendChild(toastEl);
-  const toast = new bootstrap.Toast(toastEl);
+  const toast = new bootstrap.Toast(toastEl, {
+    animation: true,
+    autohide: true,
+    delay: 3000
+  });
   toast.show();
   toastEl.addEventListener('hidden.bs.toast', () => toastEl.remove());
 }

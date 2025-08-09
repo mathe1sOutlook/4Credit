@@ -63,3 +63,41 @@ body {
   background-color: var(--color-warning-bg) !important;
   color: var(--color-warning-text) !important;
 }
+button,
+input,
+a {
+  transition: all 0.2s ease;
+}
+
+button:hover,
+button:focus {
+  filter: brightness(0.95);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+input:hover,
+input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.25);
+  outline: none;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
