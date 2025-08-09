@@ -53,6 +53,7 @@ function updateProcessBtn() {
 processBtn.addEventListener('click', async () => {
   try {
     setLoading(processBtn, true);
+    progressBar.classList.add('fade-in');
     const uid = auth.currentUser.uid;
     const cnpj = currentCNPJ;
     for (const [type, file] of Object.entries(pending)) {
@@ -82,6 +83,7 @@ processBtn.addEventListener('click', async () => {
   } finally {
     setLoading(processBtn, false);
     progressBar.style.width = '0%';
+    progressBar.classList.remove('fade-in');
     updateProcessBtn();
   }
 });
@@ -90,6 +92,9 @@ async function loadReports() {
   if (!currentCNPJ) return;
   const reports = await listReports(currentCNPJ);
   renderReports(reportContainer, reports);
+  reportContainer.querySelectorAll('.card').forEach(card =>
+    card.classList.add('fade-in')
+  );
 }
 
 document.getElementById('logout').addEventListener('click', () => signOutUser());
