@@ -1,6 +1,6 @@
 export function showToast(message, type = 'info') {
   const toastEl = document.createElement('div');
-  toastEl.className = `toast align-items-center text-bg-${type} border-0`;
+  toastEl.className = `toast fade align-items-center text-bg-${type} border-0`;
   toastEl.setAttribute('role', 'alert');
   toastEl.innerHTML = `<div class="d-flex"><div class="toast-body">${message}</div><button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button></div>`;
   document.body.appendChild(toastEl);
