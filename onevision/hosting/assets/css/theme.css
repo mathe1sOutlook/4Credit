@@ -1,0 +1,7 @@
+body {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+h1, .btn {
+  font-family: 'Poppins', sans-serif;
+}
