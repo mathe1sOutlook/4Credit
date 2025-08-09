@@ -1,2 +1,14 @@
+@import url('./theme.css');
+
+:root {
+  --bs-body-bg: var(--color-neutral-50);
+  --bs-body-color: var(--color-neutral-900);
+  --bs-primary: var(--color-primary);
+  --bs-font-sans-serif: var(--font-family-base);
+  --bs-body-font-size: 0.95rem;
+}
+
 /* Custom Bootstrap overrides */
-body { padding-top: 60px; }
+body {
+  padding-top: 60px;
+}
