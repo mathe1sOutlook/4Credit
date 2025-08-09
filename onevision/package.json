@@ -1,0 +1,8 @@
+{
+  "name": "onevision-root",
+  "private": true,
+  "scripts": {
+    "dev": "firebase emulators:start",
+    "deploy": "firebase deploy"
+  }
+}
