@@ -59,7 +59,10 @@ processBtn.addEventListener('click', async () => {
       const meta = await uploadFile(uid, cnpj, type, file);
       const uploadId = await addUpload(cnpj, { ...meta, type, status: 'uploaded' }, uid);
       watchProgress(uid, cnpj, uploadId, snap => {
-        if (snap) progressBar.style.width = snap.percent + '%';
+        if (snap) {
+          progressBar.style.width = snap.percent + '%';
+          progressBar.classList.add('fade-in');
+        }
       });
       const token = await auth.currentUser.getIdToken();
       const res = await fetch('/api/process-file', {
@@ -82,6 +85,7 @@ processBtn.addEventListener('click', async () => {
   } finally {
     setLoading(processBtn, false);
     progressBar.style.width = '0%';
+    progressBar.classList.remove('fade-in');
     updateProcessBtn();
   }
 });
@@ -90,6 +94,7 @@ async function loadReports() {
   if (!currentCNPJ) return;
   const reports = await listReports(currentCNPJ);
   renderReports(reportContainer, reports);
+  Array.from(reportContainer.children).forEach(el => el.classList.add('fade-in'));
 }
 
 document.getElementById('logout').addEventListener('click', () => signOutUser());
