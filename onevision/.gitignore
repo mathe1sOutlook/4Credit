@@ -1,0 +1,5 @@
+node_modules
+firebase-debug.log
+.env
+hosting/assets/js/config.js
+functions/node_modules
