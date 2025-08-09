@@ -13,6 +13,16 @@
 
   /* Typography */
   --font-family-base: 'Inter', sans-serif;
+
+  /* Semantic colors */
+  --color-success-bg: #d1e7dd;
+  --color-success-text: #0f5132;
+  --color-danger-bg: #f8d7da;
+  --color-danger-text: #842029;
+  --color-info-bg: #cff4fc;
+  --color-info-text: #055160;
+  --color-warning-bg: #fff3cd;
+  --color-warning-text: #664d03;
 }
 
 body {
@@ -25,4 +35,31 @@ body {
 
 .brand-font {
   font-family: 'Poppins', sans-serif;
+}
+
+.toast {
+  border-radius: 0.5rem;
+  background-color: var(--color-neutral-50);
+  color: var(--color-neutral-900);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.text-bg-success {
+  background-color: var(--color-success-bg) !important;
+  color: var(--color-success-text) !important;
+}
+
+.text-bg-danger {
+  background-color: var(--color-danger-bg) !important;
+  color: var(--color-danger-text) !important;
+}
+
+.text-bg-info {
+  background-color: var(--color-info-bg) !important;
+  color: var(--color-info-text) !important;
+}
+
+.text-bg-warning {
+  background-color: var(--color-warning-bg) !important;
+  color: var(--color-warning-text) !important;
 }
