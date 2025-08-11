@@ -25,3 +25,17 @@ body {
 .login-card h1 {
   color: var(--color-primary);
 }
+
+.btn-google {
+  background-color: #4285F4;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-google img {
+  height: 20px;
+  margin-right: 8px;
+}
