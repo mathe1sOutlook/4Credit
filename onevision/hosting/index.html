@@ -13,18 +13,20 @@
 <body class="login-body">
   <div class="card p-4 shadow-sm login-card">
     <h1 class="text-center mb-4 brand-font"><i class="bi bi-credit-card me-2"></i>OneVision • 4Credit</h1>
-    <form id="login-form">
-      <div class="mb-3">
-        <input type="email" class="form-control" id="email" placeholder="E-mail" required>
-      </div>
-      <div class="mb-3">
-        <input type="password" class="form-control" id="password" placeholder="Senha" required>
-      </div>
-      <button class="btn btn-primary w-100 mb-2 brand-font" type="submit"><i class="bi bi-box-arrow-in-right me-2"></i>Entrar</button>
-      <button class="btn btn-danger w-100 mb-2 brand-font" type="button" id="google"><i class="bi bi-google me-2"></i>Continuar com Google</button>
-      <div class="d-flex justify-content-between">
-        <a href="#" id="signup">Criar conta</a>
-        <a href="#" id="reset">Esqueci a senha</a>
+      <form id="login-form">
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="email" placeholder="E-mail" required>
+          <label for="email">E-mail</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="password" placeholder="Senha" required>
+          <label for="password">Senha</label>
+        </div>
+        <button class="btn btn-primary w-100 mb-2 brand-font" type="submit"><i class="bi bi-box-arrow-in-right me-2"></i>Entrar</button>
+        <button class="btn btn-danger w-100 mb-2 brand-font" type="button" id="google"><i class="bi bi-google me-2"></i>Continuar com Google</button>
+        <div class="d-flex justify-content-between">
+          <a href="#" id="signup">Criar conta</a>
+          <a href="#" id="reset">Esqueci a senha</a>
       </div>
     </form>
   </div>
@@ -39,11 +41,13 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="mb-3">
+            <div class="form-floating mb-3">
               <input type="email" class="form-control" id="signup-email" placeholder="E-mail" required>
+              <label for="signup-email">E-mail</label>
             </div>
-            <div class="mb-3">
+            <div class="form-floating mb-3">
               <input type="password" class="form-control" id="signup-password" placeholder="Senha" required>
+              <label for="signup-password">Senha</label>
             </div>
           </div>
           <div class="modal-footer">
@@ -65,8 +69,9 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="mb-3">
+            <div class="form-floating mb-3">
               <input type="email" class="form-control" id="reset-email" placeholder="E-mail" required>
+              <label for="reset-email">E-mail</label>
             </div>
           </div>
           <div class="modal-footer">
