@@ -2,39 +2,53 @@
 
 :root {
   /* Neutral palette */
-  --color-neutral-50: #f8f9fa;
-  --color-neutral-100: #e9ecef;
-  --color-neutral-200: #dee2e6;
-  --color-neutral-300: #ced4da;
-  --color-neutral-900: #212529;
+  --color-neutral-50: #f9fafb;
+  --color-neutral-100: #f3f4f6;
+  --color-neutral-200: #e5e7eb;
+  --color-neutral-300: #d1d5db;
+  --color-neutral-900: #111827;
 
-  /* Primary highlight */
-  --color-primary: #4f46e5;
+  /* Brand colors */
+  --color-primary: #6366f1;
+  --color-secondary: #14b8a6;
 
   /* Typography */
   --font-family-base: 'Inter', sans-serif;
+  --font-family-brand: 'Poppins', sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 3rem;
 
   /* Semantic colors */
-  --color-success-bg: #d1e7dd;
-  --color-success-text: #0f5132;
-  --color-danger-bg: #f8d7da;
-  --color-danger-text: #842029;
-  --color-info-bg: #cff4fc;
-  --color-info-text: #055160;
-  --color-warning-bg: #fff3cd;
-  --color-warning-text: #664d03;
+  --color-success-bg: #d1fae5;
+  --color-success-text: #065f46;
+  --color-danger-bg: #fee2e2;
+  --color-danger-text: #991b1b;
+  --color-info-bg: #e0f2fe;
+  --color-info-text: #075985;
+  --color-warning-bg: #fef3c7;
+  --color-warning-text: #92400e;
 }
 
 body {
   font-family: var(--font-family-base);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.6;
   background: linear-gradient(135deg, var(--color-neutral-50), var(--color-neutral-100));
   color: var(--bs-body-color);
+  margin: 0;
 }
 
 .brand-font {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-family-brand);
+}
+
+.font-family-base {
+  font-family: var(--font-family-base);
 }
 
 .toast {
@@ -63,27 +77,31 @@ body {
   background-color: var(--color-warning-bg) !important;
   color: var(--color-warning-text) !important;
 }
+
 button,
 input,
 a {
-  transition: all 0.2s ease;
+  transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 button:hover,
-button:focus {
+a:hover,
+input:hover {
   filter: brightness(0.95);
+  text-decoration: none;
+}
+
+button:focus,
+input:focus,
+a:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.25);
+  text-decoration: none;
 }
 
 a:hover,
 a:focus {
   color: var(--color-primary);
-  text-decoration: none;
-}
-
-input:hover,
-input:focus {
-  box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.25);
-  outline: none;
 }
 
 .fade-in {

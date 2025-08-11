@@ -11,8 +11,6 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  font-family: var(--font-family-base);
-  background: linear-gradient(135deg, var(--color-neutral-50), var(--color-neutral-100));
 }
 
 .login-card {
