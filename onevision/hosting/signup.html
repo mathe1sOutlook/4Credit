@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OneVision • 4Credit</title>
+  <title>OneVision • Cadastro</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5waTHZ5PZr3QdorE2vLePoHB1zIYd2xt1kxgLZcflBNO8Y+0Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="./assets/css/theme.css">
@@ -13,27 +13,19 @@
 <body class="login-body font-family-base">
   <div class="card p-4 shadow-sm login-card">
     <h1 class="text-center mb-4 brand-font"><i class="bi bi-credit-card me-2"></i>OneVision • 4Credit</h1>
-      <form id="login-form">
-        <div class="form-floating mb-3">
-          <input type="email" class="form-control input-standard" id="email" placeholder="E-mail" required>
-          <label for="email">E-mail</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="password" class="form-control input-standard" id="password" placeholder="Senha" required>
-          <label for="password">Senha</label>
-        </div>
-        <button class="btn btn-standard btn-primary w-100 mb-2 brand-font" type="submit"><i class="bi bi-box-arrow-in-right me-2"></i>Entrar</button>
-        <button class="btn btn-standard btn-google w-100 mb-2 brand-font" type="button" id="google">
-          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" class="me-2">
-          Continuar com Google
-        </button>
-        <div class="d-flex justify-content-between">
-          <a href="signup.html" id="signup">Criar conta</a>
-          <a href="reset.html" id="reset">Esqueci a senha</a>
-        </div>
-      </form>
-    </div>
-
+    <form id="signup-form">
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control input-standard" id="signup-email" placeholder="E-mail" required>
+        <label for="signup-email">E-mail</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control input-standard" id="signup-password" placeholder="Senha" required>
+        <label for="signup-password">Senha</label>
+      </div>
+      <button type="submit" class="btn btn-standard btn-primary w-100 mb-2 brand-font">Cadastrar</button>
+      <a href="index.html" class="d-block text-center">Voltar</a>
+    </form>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoA6zuOM5sV1Kw4nRJ1l6LwVU5MlvI99nN0n0yqmP6X9cOG" crossorigin="anonymous"></script>
   <script type="module" src="./assets/js/login.js"></script>
 </body>
