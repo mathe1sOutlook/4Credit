@@ -20,18 +20,18 @@
         <input type="text" id="cnpj" class="form-control form-control-lg input-standard" placeholder="00.000.000/0000-00">
         <label for="cnpj">CNPJ</label>
       </div>
-      <div class="input-group">
-        <label class="input-group-text" for="file-vadu">VADU</label>
-        <input type="file" id="file-vadu" class="form-control form-control-lg input-standard">
-      </div>
-      <div class="input-group">
-        <label class="input-group-text" for="file-serasa">SERASA</label>
-        <input type="file" id="file-serasa" class="form-control form-control-lg input-standard">
-      </div>
-      <div class="input-group">
-        <label class="input-group-text" for="file-scr">SCR</label>
-        <input type="file" id="file-scr" class="form-control form-control-lg input-standard">
-      </div>
+      <label class="btn btn-standard btn-outline-secondary upload-btn">
+        VADU
+        <input type="file" id="file-vadu" hidden>
+      </label>
+      <label class="btn btn-standard btn-outline-secondary upload-btn">
+        SERASA
+        <input type="file" id="file-serasa" hidden>
+      </label>
+      <label class="btn btn-standard btn-outline-secondary upload-btn">
+        SCR
+        <input type="file" id="file-scr" hidden>
+      </label>
       <button id="process-btn" class="btn btn-standard btn-primary w-100" disabled>Processar</button>
       <div class="progress mt-2">
         <div id="progress-bar" class="progress-bar" role="progressbar"></div>

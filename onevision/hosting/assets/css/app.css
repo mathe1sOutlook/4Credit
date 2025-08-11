@@ -34,9 +34,17 @@
 
 /* Ensure consistent width and spacing for all form groups */
 .form-floating,
-.input-group {
+.upload-btn {
   width: 100%;
   margin-bottom: 1rem;
+}
+
+.upload-btn {
+  display: block;
+}
+
+.upload-btn input[type="file"] {
+  display: none;
 }
 
 /* Form enhancements for long labels and icons */
