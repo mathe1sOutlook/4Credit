@@ -37,3 +37,8 @@ body {
   height: 20px;
   margin-right: 8px;
 }
+
+/* Utility class to ensure buttons span full width */
+.btn-full {
+  width: 100%;
+}
