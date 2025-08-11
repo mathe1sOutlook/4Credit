@@ -1,0 +1,21 @@
+/* Styles for login page layout and branding */
+
+.login-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: var(--font-family-base);
+  background: linear-gradient(135deg, var(--color-neutral-50), var(--color-neutral-100));
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  color: var(--color-neutral-900);
+}
+
+.login-card h1 {
+  color: var(--color-primary);
+}
