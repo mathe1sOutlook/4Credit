@@ -32,6 +32,13 @@
   transition: width 0.4s ease;
 }
 
+/* Ensure consistent width and spacing for all form groups */
+.form-floating,
+.input-group {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
 /* Form enhancements for long labels and icons */
 .form-floating > label {
   overflow: hidden;
@@ -39,8 +46,9 @@
   white-space: nowrap;
 }
 
+/* Default padding to maintain uniform field width */
 .form-floating .form-control {
-  padding-left: 2.5rem;
+  padding-left: 1rem;
 }
 
 .form-floating .form-icon {
