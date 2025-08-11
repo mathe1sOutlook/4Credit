@@ -3,11 +3,17 @@ import { showToast } from './ui.js';
 
 const loginForm = document.getElementById('login-form');
 const googleBtn = document.getElementById('google');
-const signupLink = document.getElementById('signup');
-const resetLink = document.getElementById('reset');
-
-const signupModal = new bootstrap.Modal(document.getElementById('signupModal'));
-const resetModal = new bootstrap.Modal(document.getElementById('resetModal'));
+// Handle modal triggers via data attributes
+document.querySelectorAll('[data-bs-toggle="modal"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    const target = link.getAttribute('data-bs-target');
+    const modalEl = document.querySelector(target);
+    const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+    modal.show();
+  });
+});
 
 loginForm.addEventListener('submit', async e => {
   e.preventDefault();
@@ -28,16 +34,6 @@ googleBtn.addEventListener('click', async () => {
   }
 });
 
-signupLink.addEventListener('click', e => {
-  e.preventDefault();
-  signupModal.show();
-});
-
-resetLink.addEventListener('click', e => {
-  e.preventDefault();
-  resetModal.show();
-});
-
 // Sign Up form handler
 const signupForm = document.getElementById('signup-form');
 signupForm.addEventListener('submit', async e => {
@@ -51,7 +47,8 @@ signupForm.addEventListener('submit', async e => {
   try {
     await signUpWithEmail(email, password);
     showToast('Conta criada', 'success');
-    signupModal.hide();
+    const modal = bootstrap.Modal.getInstance(document.getElementById('signupModal'));
+    modal.hide();
     signupForm.reset();
   } catch (err) {
     showToast(err.message, 'danger');
@@ -70,7 +67,8 @@ resetForm.addEventListener('submit', async e => {
   try {
     await sendPasswordReset(email);
     showToast('E-mail enviado', 'success');
-    resetModal.hide();
+    const modal = bootstrap.Modal.getInstance(document.getElementById('resetModal'));
+    modal.hide();
     resetForm.reset();
   } catch (err) {
     showToast(err.message, 'danger');
