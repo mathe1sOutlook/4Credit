@@ -4,7 +4,7 @@ import { uploadFile } from './storage.service.js';
 import { watchProgress } from './realtime.service.js';
 import { isValidCNPJ, isAllowedFile } from './validators.js';
 import { renderReports } from './reports.view.js';
-import { showToast, setLoading } from './ui.js';
+import { showToast, setLoading, handleError, setDisabled } from './ui.js';
 import { signOutUser } from './auth.js';
 
 const cnpjInput = document.getElementById('cnpj');
@@ -24,7 +24,7 @@ cnpjInput.addEventListener('input', () => {
   const val = cnpjInput.value.replace(/\D/g, '');
   if (isValidCNPJ(val)) {
     currentCNPJ = val;
-    ensureCustomer(val, auth.currentUser.uid).catch(e => showToast(e.message, 'danger'));
+    ensureCustomer(val, auth.currentUser.uid).catch(handleError);
   } else {
     currentCNPJ = '';
   }
@@ -47,7 +47,7 @@ Object.entries(fileInputs).forEach(([type, input]) => {
 });
 
 function updateProcessBtn() {
-  processBtn.disabled = !(currentCNPJ && Object.keys(pending).length);
+  setDisabled(processBtn, !(currentCNPJ && Object.keys(pending).length));
 }
 
 processBtn.addEventListener('click', async () => {
@@ -81,7 +81,7 @@ processBtn.addEventListener('click', async () => {
     await loadReports();
     showToast('Processamento concluído', 'success');
   } catch (err) {
-    showToast(err.message, 'danger');
+    handleError(err);
   } finally {
     setLoading(processBtn, false);
     progressBar.style.width = '0%';
