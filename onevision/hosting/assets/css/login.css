@@ -10,12 +10,12 @@ body {
   display: grid;
   place-items: center;
   min-height: 100vh;
-  padding: 2rem 1rem;
+  padding: var(--space-xl) var(--space-md);
 }
 
 .login-grid {
   display: grid;
-  gap: 2rem;
+  gap: var(--space-xl);
 }
 
 .login-hero {
@@ -25,10 +25,12 @@ body {
   padding: 2rem;
   background-color: var(--color-primary-900);
   color: #fff;
+  border-radius: var(--radius-lg);
 }
 
 .brand-bar {
   margin-bottom: 2rem;
+  justify-self: start;
 }
 
 .brand-logo {
@@ -88,7 +90,7 @@ body {
 
 @media (min-width: 900px) {
   .login-grid {
-    grid-template-columns: 1.2fr .8fr;
+    grid-template-columns: 1.5fr 1fr;
   }
 }
 
