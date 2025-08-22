@@ -66,6 +66,7 @@
 
 .upload-btn {
   display: block;
+  cursor: pointer;
 }
 
 .upload-btn input[type="file"] {
