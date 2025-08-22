@@ -199,3 +199,25 @@ a:focus {
   border-radius: var(--radius-md);
 }
 
+/* Chips for risk severity */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  line-height: 1;
+  border: 1px solid transparent;
+}
+.chip.pos {
+  background: rgba(18,183,106,0.1);
+  color: var(--color-risk-pos);
+  border-color: rgba(18,183,106,0.25);
+}
+.chip.neg {
+  background: rgba(225,29,72,0.1);
+  color: var(--color-risk-neg);
+  border-color: rgba(225,29,72,0.25);
+}
+

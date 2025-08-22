@@ -124,3 +124,21 @@ main.flex-grow-1 {
     flex: 0 0 280px;
   }
 }
+
+/* Offcanvas width and behavior */
+#sidebar.offcanvas,
+#sidebar.offcanvas-lg {
+  --bs-offcanvas-width: 300px;
+}
+
+@media (min-width: 992px) {
+  #sidebar.offcanvas-lg {
+    position: static;
+    transform: none !important;
+    visibility: visible !important;
+    background: transparent;
+    border: 0;
+  }
+  #sidebar .offcanvas-header { display: none; }
+  #sidebar .offcanvas-body { padding: 0; }
+}
