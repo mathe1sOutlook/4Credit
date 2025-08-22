@@ -1,6 +1,6 @@
 .navbar {
-  background: #fff;
-  border-bottom: 1px solid var(--color-neutral-200);
+  background: var(--color-primary-900);
+  border-bottom: 1px solid var(--color-primary-900);
   font-weight: 600;
 }
 
@@ -8,10 +8,16 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: #fff;
+}
+
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+  color: #fff;
 }
 
 .navbar .nav-link {
-  color: var(--color-neutral-900);
+  color: #fff;
 }
 
 .navbar .nav-link:hover {
