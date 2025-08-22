@@ -37,45 +37,47 @@
       </div>
     </nav>
   </header>
-  <div class="d-flex gap-3 container py-3">
-    <aside class="sidebar-modern">
-      <nav class="sidebar-nav mb-3">
-        <a class="sidebar-item active with-icon" href="app.html"><i class="bi bi-house"></i> Início</a>
-        <a class="sidebar-item with-icon" href="#"><i class="bi bi-building"></i> Empresas</a>
-        <a class="sidebar-item with-icon" href="#"><i class="bi bi-file-earmark-text"></i> Relatórios</a>
-        <a class="sidebar-item with-icon" href="#"><i class="bi bi-bell"></i> Alertas</a>
-        <a class="sidebar-item with-icon" href="#"><i class="bi bi-gear"></i> Regras</a>
-        <a class="sidebar-item with-icon" href="#"><i class="bi bi-plug"></i> Integrações</a>
-        <a class="sidebar-item with-icon" href="#"><i class="bi bi-shield-lock"></i> Admin & LGPD</a>
-      </nav>
-      <hr>
-      <div class="form-floating">
-        <input type="text" id="cnpj" class="form-control form-control-lg input-standard" placeholder="00.000.000/0000-00">
-        <label for="cnpj">CNPJ</label>
-      </div>
-      <label class="btn btn-standard btn-outline-secondary upload-btn with-icon">
-        <i class="bi bi-file-earmark-text"></i>
-        <span>VADU</span>
-        <input type="file" id="file-vadu" hidden>
-      </label>
-      <label class="btn btn-standard btn-outline-secondary upload-btn with-icon">
-        <i class="bi bi-building"></i>
-        <span>SERASA</span>
-        <input type="file" id="file-serasa" hidden>
-      </label>
-      <label class="btn btn-standard btn-outline-secondary upload-btn with-icon">
-        <i class="bi bi-bank"></i>
-        <span>SCR</span>
-        <input type="file" id="file-scr" hidden>
-      </label>
-      <button id="process-btn" class="btn btn-standard btn-primary w-100" disabled>Processar</button>
-      <div class="progress mt-2" style="height: 6px;">
-        <div id="progress-bar" class="progress-bar" role="progressbar"></div>
-      </div>
-    </aside>
-    <main class="flex-grow-1">
-      <div id="reports"></div>
-    </main>
+  <div class="container-xxl py-4">
+    <div class="d-flex gap-4">
+      <aside class="sidebar-modern">
+        <nav class="sidebar-nav mb-3">
+          <a class="sidebar-item active with-icon" href="app.html"><i class="bi bi-house"></i> Início</a>
+          <a class="sidebar-item with-icon" href="#"><i class="bi bi-building"></i> Empresas</a>
+          <a class="sidebar-item with-icon" href="#"><i class="bi bi-file-earmark-text"></i> Relatórios</a>
+          <a class="sidebar-item with-icon" href="#"><i class="bi bi-bell"></i> Alertas</a>
+          <a class="sidebar-item with-icon" href="#"><i class="bi bi-gear"></i> Regras</a>
+          <a class="sidebar-item with-icon" href="#"><i class="bi bi-plug"></i> Integrações</a>
+          <a class="sidebar-item with-icon" href="#"><i class="bi bi-shield-lock"></i> Admin & LGPD</a>
+        </nav>
+        <hr>
+        <div class="form-floating">
+          <input type="text" id="cnpj" class="form-control form-control-lg input-standard" placeholder="00.000.000/0000-00">
+          <label for="cnpj">CNPJ</label>
+        </div>
+        <label class="btn btn-standard btn-outline-secondary upload-btn with-icon">
+          <i class="bi bi-file-earmark-text"></i>
+          <span>VADU</span>
+          <input type="file" id="file-vadu" hidden>
+        </label>
+        <label class="btn btn-standard btn-outline-secondary upload-btn with-icon">
+          <i class="bi bi-building"></i>
+          <span>SERASA</span>
+          <input type="file" id="file-serasa" hidden>
+        </label>
+        <label class="btn btn-standard btn-outline-secondary upload-btn with-icon">
+          <i class="bi bi-bank"></i>
+          <span>SCR</span>
+          <input type="file" id="file-scr" hidden>
+        </label>
+        <button id="process-btn" class="btn btn-standard btn-primary w-100" disabled>Processar</button>
+        <div class="progress mt-2" style="height: 6px;">
+          <div id="progress-bar" class="progress-bar" role="progressbar"></div>
+        </div>
+      </aside>
+      <main class="flex-grow-1">
+        <div id="reports"></div>
+      </main>
+    </div>
   </div>
   <footer class="container py-3">
     <p class="small text-muted m-0">Confidencial • LGPD — <a href="#" class="link-underline">Política de Privacidade</a></p>
