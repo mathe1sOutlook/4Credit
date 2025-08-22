@@ -1,4 +1,4 @@
-# VisionOne • 4Credit
+# VisionOne
 
 Aplicação de análise de arquivos financeiros (VADU, SERASA, SCR) com **Firebase Hosting + Functions** e UI alinhada ao **guia de design VisionOne**.
 

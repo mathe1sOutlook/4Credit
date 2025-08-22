@@ -5,12 +5,14 @@ import { watchProgress } from './realtime.service.js';
 import { isValidCNPJ, isAllowedFile } from './validators.js';
 import { renderReports } from './reports.view.js';
 import { showToast, setLoading, handleError, setDisabled } from './ui.js';
-import { signOutUser } from './auth.js';
+import { signOutUser, watchAuthState } from './auth.js';
 
 const cnpjInput = document.getElementById('cnpj');
 const processBtn = document.getElementById('process-btn');
 const progressBar = document.getElementById('progress-bar');
 const reportContainer = document.getElementById('reports');
+const userNameEl = document.getElementById('user-name');
+const userPhotoEl = document.getElementById('user-photo');
 const fileInputs = {
   VADU: document.getElementById('file-vadu'),
   SERASA: document.getElementById('file-serasa'),
@@ -98,5 +100,11 @@ async function loadReports() {
 }
 
 document.getElementById('logout').addEventListener('click', () => signOutUser());
+
+watchAuthState(user => {
+  if (!user) return;
+  if (userNameEl) userNameEl.textContent = user.displayName || user.email;
+  if (userPhotoEl) userPhotoEl.src = user.photoURL || 'https://via.placeholder.com/64';
+});
 
 window.addEventListener('load', loadReports);
