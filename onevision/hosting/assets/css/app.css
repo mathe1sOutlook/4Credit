@@ -1,31 +1,25 @@
+/* Skin da navbar do app (fundo navy + texto claro) */
 .app-navbar{
-  background:var(--color-primary-900);
-  border-bottom:1px solid rgba(255,255,255,.08);
+  background: var(--color-primary-900);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  /* variáveis do Bootstrap para navbar-dark */
+  --bs-navbar-color: rgba(255,255,255,.85);
+  --bs-navbar-hover-color: #fff;
+  --bs-navbar-brand-color: #fff;
+  --bs-navbar-toggler-border-color: rgba(255,255,255,.35);
+}
+.app-navbar .navbar-brand,
+.app-navbar .nav-link{ color: var(--bs-navbar-color); }
+.app-navbar .nav-link:hover{ color: var(--bs-navbar-hover-color); }
+
+/* Garantir ícone visível do toggler em tema escuro */
+.navbar-dark .navbar-toggler-icon{
+  /* usa o ícone padrão do Bootstrap para dark */
+  background-image: var(--bs-navbar-toggler-icon-bg);
 }
 
-.app-navbar .navbar-brand{
-  display:flex;
-  align-items:center;
-  gap:.5rem;
-  color:#fff;
-}
-
-.app-navbar .navbar-brand:hover,
-.app-navbar .navbar-brand:focus{
-  color:#fff;
-}
-
-.app-navbar .nav-link{
-  color:#fff;
-}
-
-.app-navbar .nav-link:hover{
-  color:var(--color-primary);
-}
-
-.app-navbar .navbar-toggler{
-  border:none;
-}
+/* Respiro pro botão Sair */
+#logout{ margin-left: .5rem; }
 
 .sidebar-modern {
   flex: 1 1 240px;
