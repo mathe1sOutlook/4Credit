@@ -8,7 +8,9 @@
   --color-neutral-200: #e5e7eb;
   --color-neutral-300: #d1d5db;
   --color-neutral-900: #111827;
-  --color-primary: #6366f1;
+  --color-primary-600: #2563eb;
+  --color-primary-900: #001f3f;
+  --color-primary: var(--color-primary-600);
   --color-secondary: #14b8a6;
 
   /* Semantic colors */
@@ -109,13 +111,30 @@ button:focus,
 input:focus,
 a:focus {
   outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
   text-decoration: none;
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  box-shadow: none;
 }
 
 a:hover,
 a:focus {
   color: var(--color-primary);
+}
+
+.link-underline {
+  text-decoration: underline;
+}
+
+.link-underline:hover,
+.link-underline:focus {
+  text-decoration: underline;
 }
 
 .fade-in {
