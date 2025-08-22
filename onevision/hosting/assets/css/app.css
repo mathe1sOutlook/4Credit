@@ -100,23 +100,23 @@
     font-size: 1rem;
   }
 
-  .sidebar-nav{
-    background:var(--color-primary-900);
-    border-radius:var(--radius-lg);
-    padding:.5rem;
-  }
-  .sidebar-item{
-    display:flex;
-    align-items:center;
-    gap:.5rem;
-    color:#fff;
-    padding:.5rem .75rem;
-    border-radius:8px;
-    text-decoration:none;
-  }
-  .sidebar-item:hover{
-    background:rgba(255,255,255,.08);
-  }
-  .sidebar-item.active{
-    background:rgba(255,255,255,.15);
-  }
+ .sidebar-nav{
+   background:var(--color-primary-900);
+   border-radius:var(--radius-lg);
+   padding:.5rem;
+ }
+ .sidebar-item{
+   display:flex;
+   align-items:center;
+   gap:.5rem;
+   color:#fff;
+   padding:.5rem .75rem;
+   border-radius:8px;
+   text-decoration:none;
+ }
+ .sidebar-item:hover{
+   background:rgba(255,255,255,.08);
+ }
+ .sidebar-item.active{
+   background:rgba(255,255,255,.15);
+ }
