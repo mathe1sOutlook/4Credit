@@ -1,30 +1,30 @@
-.navbar {
+.app-navbar {
   background: var(--color-primary-900);
-  border-bottom: 1px solid var(--color-primary-900);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   font-weight: 600;
 }
 
-.navbar .navbar-brand {
+.app-navbar .navbar-brand {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   color: #fff;
 }
 
-.navbar .navbar-brand:hover,
-.navbar .navbar-brand:focus {
+.app-navbar .navbar-brand:hover,
+.app-navbar .navbar-brand:focus {
   color: #fff;
 }
 
-.navbar .nav-link {
+.app-navbar .nav-link {
   color: #fff;
 }
 
-.navbar .nav-link:hover {
+.app-navbar .nav-link:hover {
   color: var(--color-primary);
 }
 
-.navbar-toggler {
+.app-navbar .navbar-toggler {
   border: none;
 }
 
