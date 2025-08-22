@@ -120,3 +120,14 @@
  .sidebar-item.active{
    background:rgba(255,255,255,.15);
  }
+
+/* Layout spacing adjustments */
+main.flex-grow-1 {
+  padding: .25rem 0;
+}
+
+@media (min-width: 1200px) {
+  .sidebar-modern {
+    flex: 0 0 280px;
+  }
+}
