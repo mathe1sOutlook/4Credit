@@ -13,12 +13,13 @@
 </head>
 <body class="login-body font-family-base">
   <main class="login-grid">
-    <section class="login-hero">
-      <div class="brand-bar brand-font with-icon">
-          <img src="./assets/img/visionone.svg" class="brand-logo" alt="VisionOne Credit Risk">
-        <h1 class="h4 m-0">visionOne • 4Credit</h1>
+    <section class="login-hero" style="background:var(--color-primary-900)">
+      <div class="brand-bar with-icon brand-font">
+        <img src="./assets/img/visionone.png" class="brand-logo" alt="VisionOne Credit Risk">
+        <h1 class="h4 m-0">VisionOne Credit Risk</h1>
       </div>
-      <p class="brand-font">A inteligência que vê o que outros não veem</p>
+      <h2 class="h3">A inteligência que vê o que outros não veem.</h2>
+      <p class="text-white-50">Decida com comportamento, histórico e contexto.</p>
     </section>
     <section>
       <div class="card p-4 shadow-sm login-card">
@@ -32,6 +33,10 @@
             <input type="password" class="form-control input-standard" id="password" placeholder="Senha" required>
             <label for="password">Senha</label>
           </div>
+          <div class="form-floating">
+            <input type="text" inputmode="numeric" pattern="[0-9]*" class="form-control input-standard" id="mfa" placeholder="Código MFA (se habilitado)">
+            <label for="mfa">Código MFA (se habilitado)</label>
+          </div>
           <button class="btn btn-standard btn-primary w-100 btn-full brand-font with-icon" type="submit">
             <i class="bi bi-box-arrow-in-right"></i>
             Entrar
@@ -41,10 +46,15 @@
             <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
             Continuar com Google
           </button>
-          <div class="d-flex justify-content-between">
-            <a href="signup.html" id="signup">Criar conta</a>
-            <a href="reset.html" id="reset">Esqueci a senha</a>
+          <button class="btn btn-standard btn-azure w-100 btn-full brand-font with-icon" type="button" id="azure">
+            <i class="bi bi-microsoft"></i>
+            Continuar com Azure AD
+          </button>
+          <div class="d-flex justify-content-between small">
+            <a href="reset.html">Esqueci a senha</a>
+            <a href="#" id="request-access">Solicitar acesso</a>
           </div>
+          <p class="text-center text-muted small mt-2">Confidencial • LGPD</p>
         </form>
       </div>
     </section>
