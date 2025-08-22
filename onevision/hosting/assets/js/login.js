@@ -3,6 +3,8 @@ import { showToast } from './ui.js';
 
 const loginForm = document.getElementById('login-form');
 const googleBtn = document.getElementById('google');
+const azureBtn = document.getElementById('azure');
+const requestAccess = document.getElementById('request-access');
 
 if (loginForm) {
   loginForm.addEventListener('submit', async e => {
@@ -24,6 +26,19 @@ if (googleBtn) {
     } catch (err) {
       showToast(err.message, 'danger');
     }
+  });
+}
+
+if (azureBtn) {
+  azureBtn.addEventListener('click', () => {
+    showToast('Integração Azure AD em breve', 'info');
+  });
+}
+
+if (requestAccess) {
+  requestAccess.addEventListener('click', e => {
+    e.preventDefault();
+    window.location.href = 'signup.html';
   });
 }
 

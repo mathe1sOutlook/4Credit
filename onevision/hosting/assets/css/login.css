@@ -23,7 +23,7 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: 2rem;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-900);
   color: #fff;
 }
 
@@ -70,15 +70,28 @@ body {
   margin-right: 8px;
 }
 
+.btn-azure {
+  background-color: #0078D4;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-azure i {
+  margin-right: 8px;
+}
+
 /* Ensure consistent spacing between form elements */
 #login-form {
   display: grid;
   gap: 1rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
   .login-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr .8fr;
   }
 }
 
