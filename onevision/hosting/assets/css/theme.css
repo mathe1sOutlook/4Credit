@@ -1,20 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600&display=swap');
 
+/* Design tokens */
 :root {
-  /* Neutral palette */
+  /* Palette */
   --color-neutral-50: #f9fafb;
   --color-neutral-100: #f3f4f6;
   --color-neutral-200: #e5e7eb;
   --color-neutral-300: #d1d5db;
   --color-neutral-900: #111827;
-
-  /* Brand colors */
   --color-primary: #6366f1;
   --color-secondary: #14b8a6;
 
-  /* Typography */
-  --font-family-base: 'Inter', sans-serif;
-  --font-family-brand: 'Poppins', sans-serif;
+  /* Semantic colors */
+  --color-success: #22c55e;
+  --color-info: #0ea5e9;
+  --color-warning: #eab308;
+  --color-danger: #ef4444;
+
+  /* Score colors */
+  --color-score-good: #22c55e;
+  --color-score-average: #eab308;
+  --color-score-poor: #ef4444;
+
+  /* Radii */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+
+  /* Shadow */
+  --shadow-base: 0 2px 6px rgba(0, 0, 0, 0.1);
 
   /* Spacing scale */
   --space-xs: 0.25rem;
@@ -23,7 +37,11 @@
   --space-lg: 1.5rem;
   --space-xl: 3rem;
 
-  /* Semantic colors */
+  /* Typography */
+  --font-family-base: 'Inter', sans-serif;
+  --font-family-brand: 'Poppins', sans-serif;
+
+  /* Component colors */
   --color-success-bg: #d1fae5;
   --color-success-text: #065f46;
   --color-danger-bg: #fee2e2;
@@ -38,13 +56,9 @@ body {
   font-family: var(--font-family-base);
   font-size: 1rem;
   line-height: 1.6;
-  background: linear-gradient(135deg, var(--color-neutral-50), var(--color-neutral-100));
-  color: var(--bs-body-color);
+  background: radial-gradient(circle at top, var(--color-neutral-50), var(--color-neutral-100));
+  color: var(--color-neutral-900);
   margin: 0;
-}
-
-.brand-font {
-  font-family: var(--font-family-brand);
 }
 
 .font-family-base {
@@ -121,16 +135,45 @@ a:focus {
 }
 
 /* Utility classes */
+.brand-font {
+  font-family: var(--font-family-brand);
+}
+
+.with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.stack-sm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.stack-md {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.card-elevated {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-base);
+  background-color: var(--color-neutral-50);
+}
+
 .input-standard {
   height: 3rem;
   padding: 0 var(--space-md);
   border: 1px solid var(--color-neutral-300);
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
 }
 
 .btn-standard {
   min-height: 2.75rem;
   padding: 0 var(--space-md);
   border: 1px solid transparent;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
 }
+
