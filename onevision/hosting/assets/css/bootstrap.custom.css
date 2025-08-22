@@ -14,7 +14,8 @@ body {
   padding-top: 60px;
 }
 
-.navbar {
+/* Mantém navbars padrão brancas, mas não interfere na do app */
+.navbar:not(.app-navbar){
   background: #fff;
   border-bottom: 1px solid var(--color-neutral-200);
 }

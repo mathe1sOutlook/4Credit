@@ -1,26 +1,3 @@
-/* Skin da navbar do app (fundo navy + texto claro) */
-.app-navbar{
-  background: var(--color-primary-900);
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  /* variáveis do Bootstrap para navbar-dark */
-  --bs-navbar-color: rgba(255,255,255,.85);
-  --bs-navbar-hover-color: #fff;
-  --bs-navbar-brand-color: #fff;
-  --bs-navbar-toggler-border-color: rgba(255,255,255,.35);
-}
-.app-navbar .navbar-brand,
-.app-navbar .nav-link{ color: var(--bs-navbar-color); }
-.app-navbar .nav-link:hover{ color: var(--bs-navbar-hover-color); }
-
-/* Garantir ícone visível do toggler em tema escuro */
-.navbar-dark .navbar-toggler-icon{
-  /* usa o ícone padrão do Bootstrap para dark */
-  background-image: var(--bs-navbar-toggler-icon-bg);
-}
-
-/* Respiro pro botão Sair */
-#logout{ margin-left: .5rem; }
-
 .sidebar-modern {
   flex: 1 1 240px;
   min-width: 200px;
@@ -127,18 +104,39 @@ main.flex-grow-1 {
 
 /* Offcanvas width and behavior */
 #sidebar.offcanvas,
-#sidebar.offcanvas-lg {
-  --bs-offcanvas-width: 300px;
+  #sidebar.offcanvas-lg {
+    --bs-offcanvas-width: 300px;
+  }
+
+  @media (min-width: 992px) {
+    #sidebar.offcanvas-lg {
+      position: static;
+      transform: none !important;
+      visibility: visible !important;
+      background: transparent;
+      border: 0;
+    }
+    #sidebar .offcanvas-header { display: none; }
+    #sidebar .offcanvas-body { padding: 0; }
+  }
+
+/* Skin da navbar do app */
+.app-navbar{
+  background: var(--color-primary-900);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  --bs-navbar-color: rgba(255,255,255,.85);
+  --bs-navbar-hover-color: #fff;
+  --bs-navbar-brand-color: #fff;
+  --bs-navbar-toggler-border-color: rgba(255,255,255,.35);
+}
+.app-navbar .navbar-brand,
+.app-navbar .nav-link{ color: var(--bs-navbar-color); }
+.app-navbar .nav-link:hover{ color: var(--bs-navbar-hover-color); }
+
+/* garante as 3 listras visíveis no tema dark */
+.navbar-dark .navbar-toggler-icon{
+  background-image: var(--bs-navbar-toggler-icon-bg);
 }
 
-@media (min-width: 992px) {
-  #sidebar.offcanvas-lg {
-    position: static;
-    transform: none !important;
-    visibility: visible !important;
-    background: transparent;
-    border: 0;
-  }
-  #sidebar .offcanvas-header { display: none; }
-  #sidebar .offcanvas-body { padding: 0; }
-}
+/* respiro do botão sair */
+#logout{ margin-left:.5rem; }
