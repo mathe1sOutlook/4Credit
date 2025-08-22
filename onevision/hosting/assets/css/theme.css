@@ -5,13 +5,16 @@
   /* Palette */
   --color-neutral-50: #f9fafb;
   --color-neutral-100: #f3f4f6;
-  --color-neutral-200: #e5e7eb;
+  --color-neutral-200: #D6D9DD;
   --color-neutral-300: #d1d5db;
-  --color-neutral-900: #111827;
-  --color-primary-600: #2563eb;
-  --color-primary-900: #001f3f;
+  --color-neutral-500: #8592A2;
+  --color-neutral-900: #0B1320;
+  --color-primary-600: #29507E;
+  --color-primary-900: #032052;
   --color-primary: var(--color-primary-600);
   --color-secondary: #14b8a6;
+  --color-risk-pos: #12B76A;
+  --color-risk-neg: #E11D48;
 
   /* Semantic colors */
   --color-success: #22c55e;
@@ -26,8 +29,8 @@
 
   /* Radii */
   --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 1rem;
+  --radius-md: 12px;
+  --radius-lg: 16px;
 
   /* Shadow */
   --shadow-base: 0 2px 6px rgba(0, 0, 0, 0.1);
