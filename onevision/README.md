@@ -298,15 +298,3 @@ Config: copiar config.example.js para config.js com credenciais do Firebase. con
 
 Licença
 MIT
-
-markdown
-Copiar
-Editar
-
-Se quiser, eu já transformo esse README em um arquivo no repositório e também gero um `docs/VISIONONE-UX.md` separado (idêntico à seção de **Design System**) para orientar futuras tarefas.
-
-
-
-
-
-Perguntar ao ChatGPT
