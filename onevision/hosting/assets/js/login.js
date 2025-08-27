@@ -66,11 +66,26 @@ if (signupForm) {
       await signUpWithEmail(email, password);
       showToast('Conta criada', 'success');
       signupForm.reset();
-      window.location.href = 'index.html';
+      window.location.href = 'app.html';
     } catch (err) {
       handleError(err);
     } finally {
       setLoading(btn, false);
+    }
+  });
+}
+
+const googleSignupBtn = document.getElementById('google-signup');
+if (googleSignupBtn) {
+  googleSignupBtn.addEventListener('click', async () => {
+    try {
+      setLoading(googleSignupBtn, true);
+      await signInWithGoogle();
+      window.location.href = 'app.html';
+    } catch (err) {
+      handleError(err);
+    } finally {
+      setLoading(googleSignupBtn, false);
     }
   });
 }
