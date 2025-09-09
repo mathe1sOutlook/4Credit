@@ -1,5 +1,23 @@
 import { IQCResult, IQCComponent, RiscoClassificacao, Parecer } from '../models/iqc.model.js';
 import { FonteFaturamento, SetorRisco, TipoCredor, TipoAcao } from '../models/cedente.model.js';
+import { classificarProtesto } from './protesto.service.js';
+
+function detectarAlteracoesSuspeitas(cedente = {}) {
+  const alteracoes = cedente.alteracoesCadastrais || [];
+  const negativos = [
+    ...(cedente.protestos || []),
+    ...(cedente.acoesJudiciais || [])
+  ].filter(o => o.data);
+  if (!alteracoes.length || !negativos.length) return false;
+  const janela = 30 * 24 * 60 * 60 * 1000;
+  return alteracoes.some(a => {
+    const da = new Date(a.data).getTime();
+    return negativos.some(n => {
+      const dn = new Date(n.data).getTime();
+      return Math.abs(dn - da) <= janela;
+    });
+  });
+}
 
 export class IQCCalculator {
   /**
@@ -30,7 +48,10 @@ export class IQCCalculator {
     }
 
     // Protestos abaixo de R$100k
-    const protestos = cedente.protestos || [];
+    const protestos = (cedente.protestos || []).map(p => {
+      p.tipoCredor = classificarProtesto(p);
+      return p;
+    });
     const totalProtestos = protestos.reduce((s, p) => s + (p.valor || 0), 0);
     if (totalProtestos < 100000 && totalProtestos > 0) {
       score += 5;
@@ -57,11 +78,19 @@ export class IQCCalculator {
 
     // --- Penalizações graduadas ---
     const totalPublico = protestos
-      .filter(p => p.tipoCredor === TipoCredor.BANCO || p.tipoCredor === TipoCredor.PESSOA_JURIDICA)
+      .filter(p => [
+        TipoCredor.BANCO,
+        TipoCredor.PESSOA_JURIDICA,
+        TipoCredor.FIDC,
+        TipoCredor.SECURITIZADORA,
+        TipoCredor.FACTORING
+      ].includes(p.tipoCredor))
       .reduce((s, p) => s + (p.valor || 0), 0);
     const totalPrivado = protestos
       .filter(p => p.tipoCredor === TipoCredor.PESSOA_FISICA)
       .reduce((s, p) => s + (p.valor || 0), 0);
+    const pctPublico = faturamento ? (totalPublico / faturamento) * 100 : 0;
+    const pctPrivado = faturamento ? (totalPrivado / faturamento) * 100 : 0;
 
     const penalPublico = Math.floor(totalPublico / 50000) * 5;
     if (penalPublico > 0) {
@@ -94,7 +123,7 @@ export class IQCCalculator {
       componentes.push(new IQCComponent({ descricao: 'RJ <6m', valor: -10 }));
     }
 
-    const hasFIDCProtest = protestos.some(p => /fidc/i.test(p.credor || ''));
+    const hasFIDCProtest = protestos.some(p => p.tipoCredor === TipoCredor.FIDC);
     const hasFIDCAction = (cedente.acoesJudiciais || []).some(a => /fidc/i.test(a.numero || a.tipo || ''));
     if (hasFIDCProtest || hasFIDCAction) {
       score -= 15;
@@ -115,6 +144,19 @@ export class IQCCalculator {
       parecer = Parecer.DESFAVORAVEL;
     }
 
-    return new IQCResult({ score, componentes, risco, parecer });
+    const alteracoesSuspeitas = detectarAlteracoesSuspeitas(cedente);
+    if (alteracoesSuspeitas) {
+      score -= 5;
+      componentes.push(new IQCComponent({ descricao: 'Alterações suspeitas', valor: -5 }));
+    }
+
+    return new IQCResult({
+      score,
+      componentes,
+      risco,
+      parecer,
+      percentuaisProtestos: { publico: pctPublico, privado: pctPrivado },
+      alteracoesSuspeitas
+    });
   }
 }
