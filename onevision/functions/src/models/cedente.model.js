@@ -28,7 +28,10 @@ export const TipoProtesto = Object.freeze({
 export const TipoCredor = Object.freeze({
   PESSOA_FISICA: 'PESSOA_FISICA',
   PESSOA_JURIDICA: 'PESSOA_JURIDICA',
-  BANCO: 'BANCO'
+  BANCO: 'BANCO',
+  FIDC: 'FIDC',
+  SECURITIZADORA: 'SECURITIZADORA',
+  FACTORING: 'FACTORING'
 });
 
 export const SetorRisco = Object.freeze({
@@ -84,6 +87,19 @@ export class Protesto {
       valor: this.valor,
       data: this.data ? this.data.toISOString() : null
     };
+  }
+}
+
+export class AlteracaoCadastral {
+  constructor({ data = null, descricao = '' } = {}) {
+    this.data = data ? new Date(data) : null;
+    this.descricao = descricao;
+  }
+  static fromJSON(json = {}) {
+    return new AlteracaoCadastral(json);
+  }
+  toJSON() {
+    return { data: this.data ? this.data.toISOString() : null, descricao: this.descricao };
   }
 }
 
@@ -192,7 +208,8 @@ export class Cedente {
     consultasCredito = [],
     pontualidade = null,
     socios = [],
-    empresasRelacionadas = []
+    empresasRelacionadas = [],
+    alteracoesCadastrais = []
   } = {}) {
     this.cnpj = cnpj;
     this.razaoSocial = razaoSocial;
@@ -211,6 +228,7 @@ export class Cedente {
     this.pontualidade = pontualidade;
     this.socios = socios;
     this.empresasRelacionadas = empresasRelacionadas;
+    this.alteracoesCadastrais = alteracoesCadastrais;
   }
 
   static fromJSON(json = {}) {
@@ -223,6 +241,8 @@ export class Cedente {
       pontualidade: json.pontualidade ? Pontualidade.fromJSON(json.pontualidade) : null,
       socios: (json.socios || []).map(s => Socio.fromJSON(s)),
       empresasRelacionadas: (json.empresasRelacionadas || []).map(e => EmpresaRelacionada.fromJSON(e))
+      ,
+      alteracoesCadastrais: (json.alteracoesCadastrais || []).map(a => AlteracaoCadastral.fromJSON(a))
     });
   }
 
@@ -244,7 +264,8 @@ export class Cedente {
       consultasCredito: this.consultasCredito.map(c => c.toJSON()),
       pontualidade: this.pontualidade ? this.pontualidade.toJSON() : null,
       socios: this.socios.map(s => s.toJSON()),
-      empresasRelacionadas: this.empresasRelacionadas.map(e => e.toJSON())
+      empresasRelacionadas: this.empresasRelacionadas.map(e => e.toJSON()),
+      alteracoesCadastrais: this.alteracoesCadastrais.map(a => a.toJSON())
     };
   }
 }
